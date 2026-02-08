@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
@@ -23,29 +22,3 @@ Global
 		SolutionGuid = {2A7E26F2-81AA-4DED-8998-B31A541B9F37}
 	EndGlobalSection
 EndGlobal
-=======
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.2.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactFunctionApp", "ContactFunctionApp\ContactFunctionApp.csproj", "{78C0A6BF-3081-C31B-F17F-8C6F8536F86B}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{78C0A6BF-3081-C31B-F17F-8C6F8536F86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78C0A6BF-3081-C31B-F17F-8C6F8536F86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78C0A6BF-3081-C31B-F17F-8C6F8536F86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78C0A6BF-3081-C31B-F17F-8C6F8536F86B}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2A7E26F2-81AA-4DED-8998-B31A541B9F37}
-	EndGlobalSection
-EndGlobal
->>>>>>> 4b97b6e75658897bdd05abdbe7100e7af874cd59
