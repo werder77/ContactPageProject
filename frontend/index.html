@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Contact Page 1</title>
+    <title>Contact Page</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ form.addEventListener("submit", async (e) => {
         message: document.getElementById("message").value
     };
 
-    const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/", {
+    const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/api/SendContactEmail?code=pA5MLHxvGQ_ePv4kawrAG3jiPONtmW2HMKKYXccbx442AzFu4_7Ezw==", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
