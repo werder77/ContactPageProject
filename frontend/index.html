@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,58 +50,4 @@ form.addEventListener("submit", async (e) => {
 </script>
 
 </body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Page 1</title>
-</head>
-
-<body>
-<h2>Contact Us</h2>
-
-<form id="contactForm">
-    <label>Name</label><br>
-    <input type="text" id="name" maxlength="256" required><br><br>
-
-    <label>Email</label><br>
-    <input type="email" id="email" maxlength="256" required><br><br>
-
-    <label>Message Subject</label><br>
-    <input type="text" id="subject" maxlength="256" required><br><br>
-
-    <label>Message</label><br>
-    <textarea id="message" required></textarea><br><br>
-
-    <button type="submit">Send</button>
-</form>
-
-<p id="response"></p>
-
-<script>
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    };
-
-    const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
-
-    document.getElementById("response").innerText = await res.text();
-});
-</script>
-
-</body>
->>>>>>> 4b97b6e75658897bdd05abdbe7100e7af874cd59
 </html>
