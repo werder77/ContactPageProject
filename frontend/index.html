@@ -27,35 +27,34 @@
 <p id="response"></p>
 
 <script>
-const form = document.getElementById("contactForm");
+const contactForm = document.getElementById('contactForm');
 
-form.addEventListener("submit", async (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
+    // ✅ FIX: Extract the data from the form first
+    const fd = new FormData(contactForm);
+    const formData = {
+        name: fd.get('name'),    // Make sure these match the 'name' attribute in your HTML inputs
+        email: fd.get('email'),
+        subject: fd.get('subject'),
+        message: fd.get('message')
     };
 
-    // const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/api/SendContactEmail?code=pA5MLHxvGQ_ePv4kawrAG3jiPONtmW2HMKKYXccbx442AzFu4_7Ezw==", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(data)
-    // });
-
-// NEW: No token, secure relative path
-    const url = "/api/SendContactEmail"; 
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-    });
-
-    document.getElementById("response").innerText = await res.text();
+    try {
+        const response = await fetch("/api/SendContactEmail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData) // Now formData exists!
+        });
+        
+        const result = await response.text();
+        alert(result);
+    } catch (error) {
+        console.error("Error:", error);
+    }
 });
 </script>
 
