@@ -24,7 +24,7 @@ SENDER_EMAIL
 
 ## Development Language
 <<<<<<< HEAD
-C# -
+C#
 =======
 C#
 >>>>>>> 4b97b6e75658897bdd05abdbe7100e7af874cd59
