@@ -39,10 +39,20 @@ form.addEventListener("submit", async (e) => {
         message: document.getElementById("message").value
     };
 
-    const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/api/SendContactEmail?code=pA5MLHxvGQ_ePv4kawrAG3jiPONtmW2HMKKYXccbx442AzFu4_7Ezw==", {
+    // const res = await fetch("https://contactpageapp-f3emauanbhbgbfgf.westeurope-01.azurewebsites.net/api/SendContactEmail?code=pA5MLHxvGQ_ePv4kawrAG3jiPONtmW2HMKKYXccbx442AzFu4_7Ezw==", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(data)
+    // });
+
+// NEW: No token, secure relative path
+    const url = "/api/SendContactEmail"; 
+    const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
     });
 
     document.getElementById("response").innerText = await res.text();
