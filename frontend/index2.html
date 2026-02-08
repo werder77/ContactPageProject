@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Page</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form id="contactForm">
+    <label>Name</label><br>
+    <input type="text" id="name" name="name" maxlength="256" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" id="email" name="email" maxlength="256" required><br><br>
+
+    <label>Message Subject</label><br>
+    <input type="text" id="subject" name="subject" maxlength="256" required><br><br>
+
+    <label>Message</label><br>
+    <textarea id="message" name="message" required></textarea><br><br>
+
+    <button type="submit">Send</button>
+</form>
+
+<p id="response"></p>
+
+<script>
+const contactForm = document.getElementById('contactForm');
+const responseText = document.getElementById('response');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // ✅ PRO TIP: Use Object.fromEntries to automatically grab all named fields
+    const fd = new FormData(contactForm);
+    const formData = Object.fromEntries(fd.entries());
+
+    try {
+        responseText.innerText = "Sending...";
+        
+        const response = await fetch("/api/SendContactEmail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.text();
+        
+        if (response.ok) {
+            responseText.style.color = "green";
+            contactForm.reset(); // Clear form on success
+        } else {
+            responseText.style.color = "red";
+        }
+        
+        responseText.innerText = result;
+    } catch (error) {
+        console.error("Error:", error);
+        responseText.innerText = "Failed to connect to the server.";
+    }
+});
+</script>
+
+</body>
+</html>
